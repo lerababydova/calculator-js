@@ -20,9 +20,8 @@ const init = () => {
     if (isNaN(lastElement)) {
       operationQueue.push(digit);
     } else if (!isNaN(lastElement) && (lastElement + digit).length <= 9) {
-      operationQueue[operationQueue.length - 1] = String(
-        Number(lastElement + digit)
-      );
+      operationQueue[operationQueue.length - 1] =
+        digit == 0 ? lastElement + digit : String(Number(lastElement + digit));
     }
 
     result.innerHTML = operationQueue[operationQueue.length - 1];
